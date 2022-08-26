@@ -167,3 +167,15 @@ And if the concept of a "closure" is new or confusing to you.
 `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures`
 
 (Closures are one of the reasons it's important to keep dependency lists correct.)
+
+## Other notes
+
+### `useEffect` and `useCallback`
+
+The use case for `useCallback` in the exercise is a perfect example of the types of problems `useCallback` is intended to solve. However the examples in these instructions are intentionally contrived. You can simplify things a great deal by not extracting the code from `useEffect` into functions that you then have to memoize with `useCallback`
+
+`https://epicreact.dev/myths-about-useeffect/`
+
+### `useCallback` use cases
+
+The entire purpose of `useCallback` is to memoize a callback for use in dependency lists and props on memoized components (via `React.memo`, which you can learn more about from the performance workshop). The only time it's useful to use `useCallback` is when the function you're memoizing is used in one of those two situations.
